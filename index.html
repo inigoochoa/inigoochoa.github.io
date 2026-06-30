@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Íñigo Ochoa Gil, CFA</title>
+  <meta name="description" content="Portfolio de Íñigo Ochoa Gil. CFA Charterholder y Data Scientist especializado en finanzas cuantitativas, riesgo de crédito y ML interpretable." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0F1E;
+      --surface:   #141929;
+      --border:    #1E2740;
+      --accent:    #2D6FFF;
+      --accent-dim:#1A4BB8;
+      --text:      #F0F4FF;
+      --muted:     #8B9EC7;
+      --mono:      'DM Mono', monospace;
+      --sans:      'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,15,30,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    #hero {
+      padding: 160px 0 100px;
+      opacity: 0;
+      animation: fadein 0.8s ease 0.1s forwards;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-name {
+      font-family: var(--mono);
+      font-size: clamp(32px, 5.5vw, 52px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 0.85em;
+      background: var(--accent);
+      vertical-align: middle;
+      margin-left: 4px;
+      animation: blink 1.1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .hero-tagline {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .hero-tagline strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent-dim);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text);
+      border-color: var(--muted);
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: fadein 0.8s ease forwards;
+    }
+
+    section:nth-of-type(2) { animation-delay: 0.25s; }
+    section:nth-of-type(3) { animation-delay: 0.4s;  }
+    section:nth-of-type(4) { animation-delay: 0.55s; }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    /* ── About ── */
+    .about-text {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Projects ── */
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 32px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .project-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      background: rgba(45,111,255,0.1);
+      border: 1px solid rgba(45,111,255,0.25);
+      padding: 3px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+    }
+
+    .project-status {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .project-title {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .stack-item {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .stack-item::before { content: "· "; color: var(--accent); }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .link-btn {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .link-btn:hover { color: var(--text); }
+
+    .link-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* wip card */
+    .project-card.wip {
+      opacity: 0.6;
+      border-style: dashed;
+    }
+
+    .project-card.wip:hover {
+      opacity: 0.9;
+    }
+
+    /* ── Contact ── */
+    .contact-intro {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 500px;
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .contact-intro strong { color: var(--text); font-weight: 500; }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 16px; height: 16px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-text {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .contact-text a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .contact-text a:hover { color: var(--accent); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+    }
+
+    footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      #hero { padding: 120px 0 72px; }
+      section { padding: 60px 0; }
+      .nav-links { gap: 18px; }
+      .project-card { padding: 24px; }
+      footer .container { flex-direction: column; gap: 12px; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #hero, section { animation: none; opacity: 1; }
+      .cursor { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a class="nav-logo" href="#hero">iog_</a>
+      <ul class="nav-links">
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div id="hero">
+    <div class="container">
+      <h1 class="hero-name">Íñigo Ochoa Gil, CFA<span class="cursor"></span></h1>
+      <p class="hero-tagline">
+        <strong>CFA Charterholder</strong> y Data Scientist especializado en
+        <strong>Financial Data Science</strong> —
+        combinando seis años en consultoría, auditoría e inversión con ML aplicado a riesgo y mercados.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">Ver proyectos</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/inigoochoa" target="_blank" rel="noopener">LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Sobre mí</p>
+      <p class="about-text">
+        Seis años en <strong>Grant Thornton, PwC y una Single Family Office</strong> como
+        analista de valoraciones, equity y auditoría. Actualmente completando un
+        <strong>MSc en Data Science y Big Data</strong> en la UCM (GPA 9.7) con foco en
+        ML aplicado a finanzas.
+      </p>
+      <p class="about-text" style="margin-top: 16px;">
+        Mi tesis diferenciadora: <strong>dominio CFA + ML interpretable</strong>.
+        Aplico modelos de machine learning a problemas reales de finanzas — valoración,
+        riesgo de crédito, asset allocation y análisis macro — con el rigor analítico
+        de quien ha trabajado en los tres lados del mercado.
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">scikit-learn</span>
+        <span class="tag">XGBoost</span>
+        <span class="tag">SHAP</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">SQL</span>
+        <span class="tag">CFA Charterholder</span>
+        <span class="tag">Valoración</span>
+        <span class="tag">Riesgo de crédito</span>
+        <span class="tag">Asset allocation</span>
+        <span class="tag">Análisis macro</span>
+        <span class="tag">Series temporales</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Proyectos</p>
+
+      <!-- Proyecto 2: Credit Risk (primero) -->
+      <div class="project-card wip">
+        <div class="project-meta">
+          <span class="project-tag">Credit Risk · ML</span>
+          <span class="project-status">En desarrollo · julio 2025</span>
+        </div>
+        <h2 class="project-title">Credit Risk Scoring con SHAP</h2>
+        <p class="project-desc">
+          Scorecard de riesgo de crédito end-to-end sobre el dataset Give Me Some Credit
+          (150k clientes). Pipeline sklearn completo con XGBoost y explicabilidad SHAP —
+          demostrando cómo el dominio financiero mejora tanto el feature engineering
+          como la interpretación del modelo.
+        </p>
+        <div class="project-stack">
+          <span class="stack-item">scikit-learn</span>
+          <span class="stack-item">XGBoost</span>
+          <span class="stack-item">SHAP</span>
+          <span class="stack-item">Plotly</span>
+          <span class="stack-item">Python</span>
+        </div>
+        <div class="project-links">
+          <a class="link-btn" href="https://github.com/inigoochoa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Proyecto 1: Macro -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">Macro · ECB</span>
+          <span class="project-status">Live</span>
+        </div>
+        <h2 class="project-title">Análisis Macro España / Eurozona</h2>
+        <p class="project-desc">
+          Dashboard interactivo que consume la API del BCE en tiempo real (MIR, FM, HICP, LFSI)
+          para visualizar el ciclo crediticio español en el contexto de la política monetaria
+          del Eurosistema. Incluye análisis de spreads, tipos de interés y condiciones
+          financieras del sector privado.
+        </p>
+        <div class="project-stack">
+          <span class="stack-item">Python</span>
+          <span class="stack-item">Pandas</span>
+          <span class="stack-item">Plotly</span>
+          <span class="stack-item">Streamlit</span>
+          <span class="stack-item">ECB API</span>
+        </div>
+        <div class="project-links">
+          <a class="link-btn" href="https://macro-spain-ecb.streamlit.app" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver app
+          </a>
+          <a class="link-btn" href="https://github.com/inigoochoa/macro-spain-ecb" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Contacto</p>
+      <div class="contact-links">
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <p class="contact-text">
+            <a href="https://linkedin.com/in/inigoochoa" target="_blank" rel="noopener">linkedin.com/in/inigoochoa</a>
+          </p>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <p class="contact-text">
+            <a href="https://github.com/inigoochoa" target="_blank" rel="noopener">github.com/inigoochoa</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <span class="footer-copy">© 2025 Íñigo Ochoa Gil</span>
+      <span class="footer-copy">inigoochoa.com</span>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <a href="#hero" id="back-to-top" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </a>
+
+  <style>
+    #back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(45, 111, 255, 0.4);
+    }
+    #back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #back-to-top:hover {
+      background: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+    #back-to-top svg {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+
+  <script>
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+  </script>
+
+</body>
+</html>
