@@ -29,8 +29,8 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 17px;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -177,6 +177,16 @@
       border-color: var(--muted);
     }
 
+    .btn-cv {
+      background: #E8EBF2;
+      color: #0A0F1E;
+      border: 1px solid #E8EBF2;
+    }
+    .btn-cv:hover {
+      background: #F4F6FB;
+      border-color: #F4F6FB;
+    }
+
     /* ── Sections ── */
     section {
       padding: 80px 0;
@@ -315,13 +325,22 @@
       font-weight: 500;
       color: var(--accent);
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: color 0.2s;
+      padding: 5px 12px 5px 10px;
+      border-radius: 6px;
+      background: rgba(45,111,255,0.08);
+      border: 1px solid rgba(45,111,255,0.18);
+      transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .link-btn:hover { color: var(--text); }
+    .link-btn:hover {
+      color: var(--text);
+      background: rgba(45,111,255,0.16);
+      border-color: rgba(45,111,255,0.4);
+      box-shadow: 0 0 12px rgba(45,111,255,0.15);
+    }
 
     .link-btn svg {
       width: 14px;
@@ -460,7 +479,7 @@
 
     .cv-role {
       display: block;
-      font-size: 15px;
+      font-size: 19px;
       font-weight: 600;
       color: var(--text);
     }
@@ -468,7 +487,7 @@
     .cv-company {
       display: block;
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 14px;
       color: var(--accent);
       margin-top: 3px;
       letter-spacing: 0.04em;
@@ -476,7 +495,7 @@
 
     .cv-date {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 13px;
       color: var(--muted);
       white-space: nowrap;
       padding-top: 3px;
@@ -491,7 +510,7 @@
     }
 
     .cv-bullets li {
-      font-size: 14px;
+      font-size: 16px;
       color: var(--muted);
       line-height: 1.7;
       padding-left: 16px;
@@ -509,6 +528,278 @@
     .cv-bullets em {
       color: var(--text);
       font-style: italic;
+    }
+
+    /* ── Hero icons ── */
+    .hero-cta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-icon-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero-icon-link:hover {
+      color: var(--text);
+      border-color: var(--muted);
+    }
+    .hero-icon-link svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Career Timeline — vertical mobile, horizontal desktop ── */
+
+    /* --- VERTICAL (mobile-first) --- */
+    .career-timeline {
+      position: relative;
+      margin-bottom: 48px;
+      padding-left: 28px;
+    }
+    .career-timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent);
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 28px;
+      cursor: default;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -23px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      border: 2px solid var(--bg);
+      flex-shrink: 0;
+      transition: background 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .tl-item:hover .tl-dot,
+    .tl-item:focus-visible .tl-dot {
+      background: var(--accent);
+      transform: scale(1.4);
+      box-shadow: 0 0 0 4px rgba(45,111,255,0.15);
+    }
+    .tl-pivot .tl-dot {
+      background: rgba(45,111,255,0.45);
+      border-color: var(--accent);
+    }
+    .tl-pivot:hover .tl-dot,
+    .tl-pivot:focus-visible .tl-dot {
+      background: var(--accent);
+    }
+    .tl-current .tl-dot {
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(45,111,255,0.18);
+    }
+    .tl-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0 10px;
+    }
+    .tl-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .tl-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.25s ease;
+    }
+    .tl-item:hover .tl-role,
+    .tl-item:focus-visible .tl-role {
+      color: var(--accent);
+    }
+    .tl-pivot .tl-role { color: var(--accent); }
+    .tl-company {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      width: 100%;
+    }
+    .tl-pivot .tl-company { color: var(--muted); }
+
+    /* Tooltip — vertical mode: opacity fade + slight slide */
+    .tl-tooltip {
+      width: 100%;
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      padding: 10px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      opacity: 0;
+      transform: translateY(-4px);
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.35s ease, margin-top 0.3s ease;
+      pointer-events: none;
+    }
+    .tl-item:hover .tl-tooltip,
+    .tl-item:focus-visible .tl-tooltip {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 120px;
+      pointer-events: auto;
+    }
+    .tl-pivot .tl-tooltip { border-color: rgba(45,111,255,0.25); }
+    .tl-pivot:hover .tl-tooltip,
+    .tl-pivot:focus-visible .tl-tooltip {
+      border-color: rgba(45,111,255,0.4);
+    }
+
+    /* --- HORIZONTAL (desktop 601px+) --- */
+    @media (min-width: 601px) {
+      .career-timeline {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(900px, calc(100vw - 48px));
+        height: 130px;
+        padding-left: 0;
+        padding-top: 0;
+        margin-bottom: 60px;
+        box-sizing: border-box;
+        display: block; /* override mobile flex */
+      }
+      /* horizontal line */
+      .career-timeline::before {
+        left: 0;
+        right: 0;
+        top: 18px;
+        bottom: auto;
+        width: auto;
+        height: 2px;
+        background: linear-gradient(to right, transparent, var(--border) 2%, var(--border) 98%, transparent);
+      }
+      /* each item absolutely placed by its left% */
+      .tl-item {
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+        transform: translateX(-50%);
+        width: 100px;
+      }
+      .tl-dot {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 12px;
+        height: 12px;
+        margin-bottom: 12px;
+        flex-shrink: 0;
+      }
+      .tl-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 3px;
+        width: 100%;
+      }
+      .tl-date {
+        order: -1;
+        font-size: 11px;
+        margin-bottom: 3px;
+      }
+      .tl-role {
+        font-size: 13px;
+        line-height: 1.25;
+        word-break: break-word;
+      }
+      .tl-company {
+        font-size: 11px;
+        width: auto;
+      }
+      /* individual positions */
+      .tl-item:nth-child(1) { left: 4.0%; }
+      .tl-item:nth-child(2) { left: 22.0%; }
+      .tl-item:nth-child(3) { left: 35.8%; }
+      .tl-item:nth-child(4) { left: 76.0%; }
+      .tl-item:nth-child(5) { left: 92.0%; }
+      /* Tooltip — desktop: reset mobile constraints, auto height */
+      .tl-tooltip {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-4px);
+        width: 210px;
+        height: auto;
+        max-height: none;
+        min-height: 0;
+        overflow: hidden;
+        display: block;
+        margin-top: 0;
+        z-index: 10;
+        font-size: 13px;
+        line-height: 1.55;
+        padding: 10px 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        text-align: left;
+        white-space: normal;
+        word-wrap: break-word;
+        box-sizing: border-box;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      .tl-item:hover .tl-tooltip,
+      .tl-item:focus-visible .tl-tooltip {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+        max-height: none;
+      }
+      /* edge clips */
+      .tl-item:nth-child(1) .tl-tooltip { left: 0; transform: translateX(0) translateY(-4px); }
+      .tl-item:nth-child(1):hover .tl-tooltip,
+      .tl-item:nth-child(1):focus-visible .tl-tooltip { transform: translateX(0) translateY(0); }
+      .tl-item:nth-child(5) .tl-tooltip { left: auto; right: 0; transform: translateX(0) translateY(-4px); }
+      .tl-item:nth-child(5):hover .tl-tooltip,
+      .tl-item:nth-child(5):focus-visible .tl-tooltip { transform: translateX(0) translateY(0); }
     }
   </style>
 </head>
@@ -537,10 +828,21 @@
         combinando seis años en consultoría, auditoría e inversión con ML aplicado a riesgo y mercados.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#projects">Ver proyectos</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/inigo-ochoa-gil/" target="_blank" rel="noopener">LinkedIn →</a>
-        <a class="btn btn-ghost" href="mailto:inigo@inigoochoa.com">Email →</a>
-        <a class="btn btn-ghost" href="https://raw.githubusercontent.com/inigoochoa/inigoochoa.github.io/main/cv_ochoa.pdf" target="_blank" rel="noopener">Mi CVX →</a>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#projects">Ver proyectos</a>
+          <a class="btn btn-cv" href="https://raw.githubusercontent.com/inigoochoa/inigoochoa.github.io/main/cv_ochoa.pdf" target="_blank" rel="noopener">Descargar CV</a>
+        </div>
+        <div class="hero-icons">
+          <a class="hero-icon-link" href="https://www.linkedin.com/in/inigo-ochoa-gil/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a class="hero-icon-link" href="mailto:inigo@inigoochoa.com" aria-label="Email">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a class="hero-icon-link" href="https://github.com/inigoochoa" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -551,15 +853,15 @@
       <p class="section-label">Sobre mí</p>
       <p class="about-text">
         Seis años en <strong>Grant Thornton, PwC y una Single Family Office</strong> como
-        analista de valoraciones, equity y auditoría. Actualmente completando un
+        gerente de valoraciones, analista de renta variable y auditor. Actualmente completando un
         <strong>MSc en Data Science y Big Data</strong> en la UCM (GPA 9.7) con foco en
         ML aplicado a finanzas.
       </p>
       <p class="about-text" style="margin-top: 16px;">
-        Mi tesis diferenciadora: <strong>dominio CFA + ML interpretable</strong>.
-        Aplico modelos de machine learning a problemas reales de finanzas — valoración,
-        riesgo de crédito, asset allocation y análisis macro — con el rigor analítico
-        de quien ha trabajado en los tres lados del mercado.
+        Lo que más me interesa es el cruce entre ambos mundos: usar ML donde el dominio
+        financiero aporta algo que los datos solos no ven. <strong>Riesgo de crédito,
+        asset allocation, análisis macro</strong> — problemas donde saber qué significa
+        un spread o un covenant importa tanto como elegir el modelo correcto.
       </p>
       <div class="tags">
         <span class="tag">Python</span>
@@ -584,35 +886,37 @@
     <div class="container">
       <p class="section-label">Proyectos</p>
 
-      <!-- Proyecto 2: Credit Risk (primero) -->
-      <div class="project-card wip">
+      <!-- Proyecto 1: Pump It Up -->
+      <div class="project-card">
         <div class="project-meta">
-          <span class="project-tag">Credit Risk · ML</span>
-          <span class="project-status">En desarrollo · julio 2025</span>
+          <span class="project-tag">ML · Competición</span>
+          <span class="project-status">Top 13% · DrivenData</span>
         </div>
-        <h2 class="project-title">Credit Risk Scoring con SHAP</h2>
+        <h2 class="project-title">Pump It Up — Water Pump Classifier</h2>
         <p class="project-desc">
-          Scorecard de riesgo de crédito end-to-end sobre el dataset Give Me Some Credit
-          (150k clientes). Pipeline sklearn completo con XGBoost y explicabilidad SHAP —
-          demostrando cómo el dominio financiero mejora tanto el feature engineering
-          como la interpretación del modelo.
+          Solución end-to-end para la competición de DrivenData (59.400 bombas de agua en Tanzania,
+          19.775 participantes). Clasificación multiclase con ensemble de soft voting
+          RF + LightGBM + XGBoost, feature engineering extensivo, StratifiedKFold 5-fold
+          libre de data leakage y tracking completo con MLflow. Score final: 0.8186
+          — posición 2.624 / 19.775 (top 13%).
         </p>
         <div class="project-stack">
-          <span class="stack-item">scikit-learn</span>
-          <span class="stack-item">XGBoost</span>
-          <span class="stack-item">SHAP</span>
-          <span class="stack-item">Plotly</span>
           <span class="stack-item">Python</span>
+          <span class="stack-item">LightGBM</span>
+          <span class="stack-item">XGBoost</span>
+          <span class="stack-item">scikit-learn</span>
+          <span class="stack-item">MLflow</span>
+          <span class="stack-item">Pandas</span>
         </div>
         <div class="project-links">
-          <a class="link-btn" href="https://github.com/inigoochoa/credit-risk-scoring" target="_blank" rel="noopener">
+          <a class="link-btn" href="https://github.com/inigoochoa/pump-it-up-competition" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             GitHub
           </a>
         </div>
       </div>
 
-      <!-- Proyecto 1: Macro -->
+      <!-- Proyecto 2: Macro -->
       <div class="project-card">
         <div class="project-meta">
           <span class="project-tag">Macro · ECB</span>
@@ -644,6 +948,34 @@
         </div>
       </div>
 
+      <!-- Proyecto 3: Credit Risk (wip) -->
+      <div class="project-card wip">
+        <div class="project-meta">
+          <span class="project-tag">Credit Risk · ML</span>
+          <span class="project-status">En desarrollo · julio 2025</span>
+        </div>
+        <h2 class="project-title">Credit Risk Scoring con SHAP</h2>
+        <p class="project-desc">
+          Scorecard de riesgo de crédito end-to-end sobre el dataset Give Me Some Credit
+          (150k clientes). Pipeline sklearn completo con XGBoost y explicabilidad SHAP —
+          demostrando cómo el dominio financiero mejora tanto el feature engineering
+          como la interpretación del modelo.
+        </p>
+        <div class="project-stack">
+          <span class="stack-item">scikit-learn</span>
+          <span class="stack-item">XGBoost</span>
+          <span class="stack-item">SHAP</span>
+          <span class="stack-item">Plotly</span>
+          <span class="stack-item">Python</span>
+        </div>
+        <div class="project-links">
+          <a class="link-btn" href="https://github.com/inigoochoa/credit-risk-scoring" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -651,6 +983,55 @@
   <section id="cv">
     <div class="container">
       <p class="section-label">CV</p>
+
+      <!-- Timeline -->
+      <div class="career-timeline">
+        <div class="tl-item" tabindex="0">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">Oct 2019</span>
+            <span class="tl-role">Auditor</span>
+            <span class="tl-company">PwC</span>
+            <div class="tl-tooltip">Primera experiencia profesional en auditoría de grandes cuentas. Revisión de estados financieros en compañías desde pymes hasta IBEX 35.</div>
+          </div>
+        </div>
+        <div class="tl-item" tabindex="0">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">Mar 2021</span>
+            <span class="tl-role">Equity Analyst</span>
+            <span class="tl-company">Family Office CFG</span>
+            <div class="tl-tooltip">Análisis de cartera de renta variable y modelos de valoración para gestores de inversión.</div>
+          </div>
+        </div>
+        <div class="tl-item" tabindex="0">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">Abr 2022</span>
+            <span class="tl-role">V&amp;M Manager</span>
+            <span class="tl-company">Grant Thornton</span>
+            <div class="tl-tooltip">M&amp;A, valoraciones DCF y liderazgo de equipo de 5 analistas. Cuatro años construyendo el lado financiero de la ecuación.</div>
+          </div>
+        </div>
+        <div class="tl-item tl-current" tabindex="0">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">Oct 2025</span>
+            <span class="tl-role">MSc Data Science</span>
+            <span class="tl-company">UCM · GPA 9,7</span>
+            <div class="tl-tooltip">Iniciado mientras aún estaba en Grant Thornton. ML, Spark, Deep Learning y TFM sobre detección de regímenes de mercado.</div>
+          </div>
+        </div>
+        <div class="tl-item tl-pivot" tabindex="0">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">Abr 2026</span>
+            <span class="tl-role">Transición a Data Science</span>
+            <span class="tl-company">Full-time DS</span>
+            <div class="tl-tooltip">Decisión deliberada: dejar Grant Thornton para dedicarme al 100% al máster y construir el puente entre finanzas y ML.</div>
+          </div>
+        </div>
+      </div>
 
       <!-- Experiencia -->
       <h3 class="cv-group-title">Experiencia</h3>
@@ -755,6 +1136,12 @@
         <ul class="cv-bullets">
           <li>Superé los tres niveles en primer intento, obteniendo resultados en el top 10% mundial en los niveles I y II.</li>
         </ul>
+        <div class="project-links" style="margin-top:12px;">
+          <a class="link-btn" href="https://credentials.cfainstitute.org/19344657-bdba-4af5-b7aa-f55e0e7708d4#acc.TvGrn3SB" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Credencial
+          </a>
+        </div>
       </div>
 
     </div>
