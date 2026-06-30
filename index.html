@@ -432,6 +432,84 @@
       #hero, section { animation: none; opacity: 1; }
       .cursor { animation: none; }
     }
+
+    /* ── CV ── */
+    .cv-group-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cv-item {
+      margin-bottom: 32px;
+    }
+
+    .cv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cv-role {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cv-company {
+      display: block;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-top: 3px;
+      letter-spacing: 0.04em;
+    }
+
+    .cv-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 3px;
+      letter-spacing: 0.03em;
+    }
+
+    .cv-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cv-bullets li {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .cv-bullets li::before {
+      content: "·";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    .cv-bullets em {
+      color: var(--text);
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -443,6 +521,7 @@
       <ul class="nav-links">
         <li><a href="#about">Sobre mí</a></li>
         <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contacto</a></li>
       </ul>
     </div>
@@ -453,13 +532,14 @@
     <div class="container">
       <h1 class="hero-name">Íñigo Ochoa Gil, CFA<span class="cursor"></span></h1>
       <p class="hero-tagline">
-        <strong>CFA Charterholder</strong> y Data Scientist especializado en
+        CFA Charterholder y Data Scientist especializado en
         <strong>Financial Data Science</strong> —
         combinando seis años en consultoría, auditoría e inversión con ML aplicado a riesgo y mercados.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#projects">Ver proyectos</a>
-        <a class="btn btn-ghost" href="https://linkedin.com/in/inigoochoa" target="_blank" rel="noopener">LinkedIn →</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/inigo-ochoa-gil/" target="_blank" rel="noopener">LinkedIn →</a>
+        <a class="btn btn-ghost" href="mailto:inigo@inigoochoa.com">Email →</a>
       </div>
     </div>
   </div>
@@ -524,7 +604,7 @@
           <span class="stack-item">Python</span>
         </div>
         <div class="project-links">
-          <a class="link-btn" href="https://github.com/inigoochoa" target="_blank" rel="noopener">
+          <a class="link-btn" href="https://github.com/inigoochoa/credit-risk-scoring" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             GitHub
           </a>
@@ -566,6 +646,119 @@
     </div>
   </section>
 
+  <!-- CV -->
+  <section id="cv">
+    <div class="container">
+      <p class="section-label">CV</p>
+
+      <!-- Experiencia -->
+      <h3 class="cv-group-title">Experiencia</h3>
+
+      <div class="cv-item">
+        <div class="cv-header">
+          <div>
+            <span class="cv-role">Valuations &amp; Modelling Manager</span>
+            <span class="cv-company">Grant Thornton, Madrid</span>
+          </div>
+          <span class="cv-date">Abr 2022 – Abr 2026</span>
+        </div>
+        <ul class="cv-bullets">
+          <li>Desarrollo de modelos de valoración (DCF, comparables, suma de partes) para transacciones de M&amp;A, ampliaciones de capital y OPAs; responsable de los estándares de calidad del equipo.</li>
+          <li>Tratamiento y control de calidad de grandes volúmenes de datos financieros en S&amp;P Capital IQ y Refinitiv Eikon; traducción de requerimientos de negocio en especificaciones analíticas.</li>
+          <li>Elaboración de informes de valoración y gestión de la comunicación con stakeholders, presentando conclusiones a clientes y órganos de decisión.</li>
+          <li>Liderazgo de un equipo de 5 analistas: planificación de entregables, asignación de tareas y control de plazos.</li>
+        </ul>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-header">
+          <div>
+            <span class="cv-role">Equity Analyst</span>
+            <span class="cv-company">Family Office CFG, Madrid</span>
+          </div>
+          <span class="cv-date">Mar 2021 – Abr 2022</span>
+        </div>
+        <ul class="cv-bullets">
+          <li>Análisis recurrente de cartera de renta variable: modelos de valoración, seguimiento de KPIs y alertas ante factores de riesgo; recomendaciones presentadas a los gestores de cartera.</li>
+          <li>Identificación y priorización de oportunidades de inversión mediante análisis de datos de mercado y modelos de escenarios.</li>
+        </ul>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-header">
+          <div>
+            <span class="cv-role">Auditor</span>
+            <span class="cv-company">PricewaterhouseCoopers, Pamplona</span>
+          </div>
+          <span class="cv-date">Oct 2019 – Oct 2020</span>
+        </div>
+        <ul class="cv-bullets">
+          <li>Revisión de cuentas anuales en compañías desde pymes hasta IBEX 35; áreas auditadas: deuda, amortizaciones, activo fijo, ingresos y provisiones.</li>
+        </ul>
+      </div>
+
+      <!-- Educación -->
+      <h3 class="cv-group-title" style="margin-top: 48px;">Educación</h3>
+
+      <div class="cv-item">
+        <div class="cv-header">
+          <div>
+            <span class="cv-role">MSc Data Science, Big Data &amp; Business Analytics</span>
+            <span class="cv-company">UCM, Madrid</span>
+          </div>
+          <span class="cv-date">Oct 2025 – Sep 2026</span>
+        </div>
+        <ul class="cv-bullets">
+          <li>Nota media: 9,7 — Python, SQL, Tableau, Git, Machine Learning, Spark, Deep Learning, Text Mining.</li>
+          <li>TFM (en curso): <em>Detección de regímenes de mercado con machine learning aplicada al asset allocation táctico.</em></li>
+        </ul>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-header">
+          <div>
+            <span class="cv-role">Máster en Finanzas</span>
+            <span class="cv-company">AFI, Madrid</span>
+          </div>
+          <span class="cv-date">Oct 2020 – Jun 2021</span>
+        </div>
+        <ul class="cv-bullets">
+          <li>Métodos cuantitativos, mercados financieros, derivados, gestión de carteras, riesgo corporativo y gestión de capital.</li>
+          <li>TFM: <em>Las SPACs desde el punto de vista del inversor.</em></li>
+        </ul>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-header">
+          <div>
+            <span class="cv-role">Grado en Administración y Dirección de Empresas</span>
+            <span class="cv-company">UPNA, Pamplona</span>
+          </div>
+          <span class="cv-date">Sep 2014 – Jun 2018</span>
+        </div>
+        <ul class="cv-bullets">
+          <li>Matrícula de Honor en Dirección Financiera. Erasmus en Avans Hogeschool, Breda (Países Bajos).</li>
+          <li>TFG: <em>Efecto de la existencia de compartimentos en la rentabilidad de los fondos de inversión en España.</em></li>
+        </ul>
+      </div>
+
+      <!-- Certificaciones -->
+      <h3 class="cv-group-title" style="margin-top: 48px;">Certificaciones</h3>
+      <div class="cv-item">
+        <div class="cv-header">
+          <div>
+            <span class="cv-role">CFA Charterholder</span>
+            <span class="cv-company">CFA Institute</span>
+          </div>
+        </div>
+        <ul class="cv-bullets">
+          <li>Superé los tres niveles en primer intento, obteniendo resultados en el top 10% mundial en los niveles I y II.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Contact -->
   <section id="contact">
     <div class="container">
@@ -573,10 +766,18 @@
       <div class="contact-links">
         <div class="contact-row">
           <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <p class="contact-text">
+            <a href="mailto:inigo@inigoochoa.com">inigo@inigoochoa.com</a>
+          </p>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
             <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
           <p class="contact-text">
-            <a href="https://linkedin.com/in/inigoochoa" target="_blank" rel="noopener">linkedin.com/in/inigoochoa</a>
+            <a href="https://www.linkedin.com/in/inigo-ochoa-gil/" target="_blank" rel="noopener">linkedin.com/in/inigo-ochoa-gil</a>
           </p>
         </div>
         <div class="contact-row">
