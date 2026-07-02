@@ -354,12 +354,29 @@
 
     /* wip card */
     .project-card.wip {
-      opacity: 0.6;
       border-style: dashed;
     }
 
-    .project-card.wip:hover {
-      opacity: 0.9;
+    /* status dot */
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .status-dot.live {
+      background: #3ecf6e;
+      box-shadow: 0 0 6px rgba(62,207,110,0.6);
+    }
+
+    .status-dot.wip {
+      background: #ff5c5c;
+      box-shadow: 0 0 6px rgba(255,92,92,0.6);
     }
 
     /* ── Contact ── */
@@ -1045,7 +1062,7 @@
       <div class="project-card">
         <div class="project-meta">
           <span class="project-tag">Macro · ECB</span>
-          <span class="project-status">Live</span>
+          <span class="project-status"><span class="status-dot live"></span>Live</span>
         </div>
         <h2 class="project-title">Análisis Macro España</h2>
         <p class="project-desc">
@@ -1077,7 +1094,7 @@
       <div class="project-card wip">
         <div class="project-meta">
           <span class="project-tag">Credit Risk · Explicabilidad</span>
-          <span class="project-status">En desarrollo · julio 2025</span>
+          <span class="project-status"><span class="status-dot wip"></span>En desarrollo</span>
         </div>
         <h2 class="project-title">Credit Risk Scoring con SHAP</h2>
         <p class="project-desc">
@@ -1085,9 +1102,7 @@
           (150k clientes) con XGBoost, pero el foco está en la <strong style="color: var(--text); font-weight: 500;">explicabilidad</strong>:
           cada predicción se descompone con SHAP en las variables que más empujan el riesgo
           al alza o a la baja (LTV, DTI, carga de pago), y esos drivers se traducen en un
-          informe legible para dirección — el mismo ejercicio de traducir un modelo en
-          una narrativa de negocio que exige el BI avanzado, solo que aquí la "métrica"
-          es la probabilidad de impago en lugar de una venta o un churn.
+          informe legible para dirección.
         </p>
         <div class="project-stack">
           <span class="stack-item">SHAP</span>
@@ -1108,7 +1123,7 @@
       <div class="project-card wip">
         <div class="project-meta">
           <span class="project-tag">Quant Research · Asset Allocation</span>
-          <span class="project-status">En desarrollo · UCM</span>
+          <span class="project-status"><span class="status-dot wip"></span>En desarrollo</span>
         </div>
         <h2 class="project-title">Detección de Regímenes de Mercado con Machine Learning</h2>
         <p class="project-desc">
@@ -1137,7 +1152,7 @@
       <div class="project-card">
         <div class="project-meta">
           <span class="project-tag">ML · Competición</span>
-          <span class="project-status">Top 13% · DrivenData</span>
+          <span class="project-status"><span class="status-dot live"></span>Live</span>
         </div>
         <h2 class="project-title">Pump It Up — Water Pump Classifier</h2>
         <p class="project-desc">
