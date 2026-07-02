@@ -571,6 +571,87 @@
       stroke-linejoin: round;
     }
 
+    /* ── Certifications ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      transition: border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .cert-card:hover { border-color: var(--accent); }
+
+    .cert-body {
+      flex: 1 0 auto;
+    }
+
+    .cert-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .cert-logo {
+      height: 24px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .cert-status {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .cert-status.in-progress { color: var(--accent); }
+
+    .cert-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+      line-height: 1.35;
+    }
+
+    .cert-issuer {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .cert-card .link-btn {
+      margin-top: 12px;
+      font-size: 11px;
+      padding: 4px 10px 4px 8px;
+      align-self: flex-start;
+    }
+
+    .cert-card .link-btn svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .cert-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── Career Timeline — vertical mobile, horizontal desktop ── */
 
     /* --- VERTICAL (mobile-first) --- */
@@ -811,6 +892,7 @@
       <a class="nav-logo" href="#hero">iog_</a>
       <ul class="nav-links">
         <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#certifications">Certificaciones</a></li>
         <li><a href="#projects">Proyectos</a></li>
         <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contacto</a></li>
@@ -825,7 +907,9 @@
       <p class="hero-tagline">
         CFA Charterholder y Data Scientist especializado en
         <strong>Financial Data Science</strong> —
-        combinando seis años en consultoría, auditoría e inversión con ML aplicado a riesgo y mercados.
+        combinando seis años en consultoría financiera e inversión con el desarrollo de
+        soluciones analíticas avanzadas, dashboards interactivos y modelado de datos
+        para la toma de decisiones estratégicas.
       </p>
       <div class="hero-cta">
         <div class="hero-buttons">
@@ -858,19 +942,25 @@
         ML aplicado a finanzas.
       </p>
       <p class="about-text" style="margin-top: 16px;">
-        Lo que más me interesa es el cruce entre ambos mundos: usar ML donde el dominio
-        financiero aporta algo que los datos solos no ven. <strong>Riesgo de crédito,
-        asset allocation, análisis macro</strong> — problemas donde saber qué significa
-        un spread o un covenant importa tanto como elegir el modelo correcto.
+        Me especializo en actuar como el <strong>puente entre el dato y el negocio</strong>. Gracias a mi
+        trayectoria en consultoría e inversión, no solo sé cómo <strong>estructurar, modelar y
+        automatizar datos</strong> con herramientas analíticas, sino que entiendo el
+        <strong>contexto corporativo</strong> que hay detrás de ellos. Mi foco en BI es diseñar
+        <strong>herramientas de visualización y control</strong> que simplifiquen la toma de decisiones
+        y aporten claridad a los equipos financieros y ejecutivos.
       </p>
       <div class="tags">
         <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">Tableau</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Git</span>
         <span class="tag">scikit-learn</span>
         <span class="tag">XGBoost</span>
         <span class="tag">SHAP</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">Plotly</span>
-        <span class="tag">SQL</span>
         <span class="tag">CFA Charterholder</span>
         <span class="tag">Valoración</span>
         <span class="tag">Riesgo de crédito</span>
@@ -881,48 +971,83 @@
     </div>
   </section>
 
+  <!-- Certifications -->
+  <section id="certifications">
+    <div class="container">
+      <p class="section-label">Certificaciones</p>
+      <div class="cert-grid">
+
+        <div class="cert-card">
+          <div class="cert-body">
+            <div class="cert-top">
+              <img class="cert-logo" src="assets/cfa-logo.png" alt="Logo de CFA Institute" />
+              <span class="cert-status">Obtenido</span>
+            </div>
+            <div class="cert-name">CFA Charterholder</div>
+            <div class="cert-issuer">CFA Institute</div>
+          </div>
+          <a class="link-btn" href="https://credentials.cfainstitute.org/19344657-bdba-4af5-b7aa-f55e0e7708d4#acc.GaTgCrIH" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Credencial
+          </a>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-body">
+            <div class="cert-top">
+              <svg class="cert-logo" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+                <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
+                <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/>
+                <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 6.293C4.672 4.166 6.656 2.58 9 2.58z"/>
+              </svg>
+              <span class="cert-status in-progress">En proceso</span>
+            </div>
+            <div class="cert-name">Google Advanced Data Analytics</div>
+            <div class="cert-issuer">Coursera · Google</div>
+          </div>
+          <a class="link-btn" href="https://www.coursera.org/professional-certificates/google-advanced-data-analytics" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver programa
+          </a>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-body">
+            <div class="cert-top">
+              <svg class="cert-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="10.2" height="10.2" fill="#F25022"/>
+                <rect x="12.8" y="1" width="10.2" height="10.2" fill="#7FBA00"/>
+                <rect x="1" y="12.8" width="10.2" height="10.2" fill="#00A4EF"/>
+                <rect x="12.8" y="12.8" width="10.2" height="10.2" fill="#FFB900"/>
+              </svg>
+              <span class="cert-status in-progress">En proceso</span>
+            </div>
+            <div class="cert-name">PL-300: Power BI Data Analyst</div>
+            <div class="cert-issuer">Microsoft</div>
+          </div>
+          <a class="link-btn" href="https://learn.microsoft.com/es-es/credentials/certifications/data-analyst-associate/?practice-assessment-type=certification" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver certificación
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Projects -->
   <section id="projects">
     <div class="container">
       <p class="section-label">Proyectos</p>
 
-      <!-- Proyecto 1: Pump It Up -->
-      <div class="project-card">
-        <div class="project-meta">
-          <span class="project-tag">ML · Competición</span>
-          <span class="project-status">Top 13% · DrivenData</span>
-        </div>
-        <h2 class="project-title">Pump It Up — Water Pump Classifier</h2>
-        <p class="project-desc">
-          Solución end-to-end para la competición de DrivenData (59.400 bombas de agua en Tanzania,
-          19.775 participantes). Clasificación multiclase con ensemble de soft voting
-          RF + LightGBM + XGBoost, feature engineering extensivo, StratifiedKFold 5-fold
-          libre de data leakage y tracking completo con MLflow. Score final: 0.8186
-          — posición 2.624 / 19.775 (top 13%).
-        </p>
-        <div class="project-stack">
-          <span class="stack-item">Python</span>
-          <span class="stack-item">LightGBM</span>
-          <span class="stack-item">XGBoost</span>
-          <span class="stack-item">scikit-learn</span>
-          <span class="stack-item">MLflow</span>
-          <span class="stack-item">Pandas</span>
-        </div>
-        <div class="project-links">
-          <a class="link-btn" href="https://github.com/inigoochoa/pump-it-up-competition" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- Proyecto 2: Macro -->
+      <!-- Proyecto 1: Macro -->
       <div class="project-card">
         <div class="project-meta">
           <span class="project-tag">Macro · ECB</span>
           <span class="project-status">Live</span>
         </div>
-        <h2 class="project-title">Análisis Macro España / Eurozona</h2>
+        <h2 class="project-title">Análisis Macro España</h2>
         <p class="project-desc">
           Dashboard interactivo que consume la API del BCE en tiempo real (MIR, FM, HICP, LFSI)
           para visualizar el ciclo crediticio español en el contexto de la política monetaria
@@ -948,28 +1073,90 @@
         </div>
       </div>
 
-      <!-- Proyecto 3: Credit Risk (wip) -->
+      <!-- Proyecto 2: Credit Risk (wip) -->
       <div class="project-card wip">
         <div class="project-meta">
-          <span class="project-tag">Credit Risk · ML</span>
+          <span class="project-tag">Credit Risk · Explicabilidad</span>
           <span class="project-status">En desarrollo · julio 2025</span>
         </div>
         <h2 class="project-title">Credit Risk Scoring con SHAP</h2>
         <p class="project-desc">
           Scorecard de riesgo de crédito end-to-end sobre el dataset Give Me Some Credit
-          (150k clientes). Pipeline sklearn completo con XGBoost y explicabilidad SHAP —
-          demostrando cómo el dominio financiero mejora tanto el feature engineering
-          como la interpretación del modelo.
+          (150k clientes) con XGBoost, pero el foco está en la <strong style="color: var(--text); font-weight: 500;">explicabilidad</strong>:
+          cada predicción se descompone con SHAP en las variables que más empujan el riesgo
+          al alza o a la baja (LTV, DTI, carga de pago), y esos drivers se traducen en un
+          informe legible para dirección — el mismo ejercicio de traducir un modelo en
+          una narrativa de negocio que exige el BI avanzado, solo que aquí la "métrica"
+          es la probabilidad de impago en lugar de una venta o un churn.
         </p>
         <div class="project-stack">
-          <span class="stack-item">scikit-learn</span>
-          <span class="stack-item">XGBoost</span>
           <span class="stack-item">SHAP</span>
+          <span class="stack-item">XGBoost</span>
+          <span class="stack-item">scikit-learn</span>
           <span class="stack-item">Plotly</span>
           <span class="stack-item">Python</span>
         </div>
         <div class="project-links">
           <a class="link-btn" href="https://github.com/inigoochoa/credit-risk-scoring" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Proyecto 3: TFM -->
+      <div class="project-card wip">
+        <div class="project-meta">
+          <span class="project-tag">Quant Research · Asset Allocation</span>
+          <span class="project-status">En desarrollo · UCM</span>
+        </div>
+        <h2 class="project-title">Detección de Regímenes de Mercado con Machine Learning</h2>
+        <p class="project-desc">
+          Trabajo Fin de Máster orientado a asset allocation táctico: identificar en qué régimen
+          se encuentra el mercado (risk-on, risk-off, transición) a partir de variables de
+          volatilidad, correlación y condiciones financieras. Comparo tres aproximaciones —
+          <strong style="color: var(--text); font-weight: 500;">Hidden Markov Models</strong> para
+          inferir el estado latente subyacente, <strong style="color: var(--text); font-weight: 500;">clustering
+          no supervisado</strong> (K-Means, Gaussian Mixture) sobre features de riesgo, y
+          <strong style="color: var(--text); font-weight: 500;">LSTM</strong> para capturar
+          dependencia secuencial en series temporales financieras — evaluando cuál generaliza
+          mejor fuera de muestra para señalizar cambios de régimen con utilidad práctica en la
+          asignación de carteras.
+        </p>
+        <div class="project-stack">
+          <span class="stack-item">Python</span>
+          <span class="stack-item">HMM</span>
+          <span class="stack-item">Clustering</span>
+          <span class="stack-item">LSTM / Keras</span>
+          <span class="stack-item">scikit-learn</span>
+          <span class="stack-item">Series temporales</span>
+        </div>
+      </div>
+
+      <!-- Proyecto 4: Pump It Up -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">ML · Competición</span>
+          <span class="project-status">Top 13% · DrivenData</span>
+        </div>
+        <h2 class="project-title">Pump It Up — Water Pump Classifier</h2>
+        <p class="project-desc">
+          Solución end-to-end para la competición de DrivenData (59.400 bombas de agua en Tanzania,
+          19.775 participantes). Clasificación multiclase con ensemble de soft voting
+          RF + LightGBM + XGBoost, feature engineering extensivo, StratifiedKFold 5-fold
+          libre de data leakage y tracking completo con MLflow. Score final: 0.8186
+          — posición 2.624 / 19.775 (top 13%).
+        </p>
+        <div class="project-stack">
+          <span class="stack-item">Python</span>
+          <span class="stack-item">LightGBM</span>
+          <span class="stack-item">XGBoost</span>
+          <span class="stack-item">scikit-learn</span>
+          <span class="stack-item">MLflow</span>
+          <span class="stack-item">Pandas</span>
+        </div>
+        <div class="project-links">
+          <a class="link-btn" href="https://github.com/inigoochoa/pump-it-up-competition" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             GitHub
           </a>
@@ -1045,10 +1232,10 @@
           <span class="cv-date">Abr 2022 – Abr 2026</span>
         </div>
         <ul class="cv-bullets">
-          <li>Desarrollo de modelos de valoración (DCF, comparables, suma de partes) para transacciones de M&amp;A, ampliaciones de capital y OPAs; responsable de los estándares de calidad del equipo.</li>
-          <li>Tratamiento y control de calidad de grandes volúmenes de datos financieros en S&amp;P Capital IQ y Refinitiv Eikon; traducción de requerimientos de negocio en especificaciones analíticas.</li>
-          <li>Elaboración de informes de valoración y gestión de la comunicación con stakeholders, presenting conclusiones a clientes y órganos de decisión.</li>
-          <li>Liderazgo de un equipo de 5 analistas: planificación de entregables, asignación de tareas y control de plazos.</li>
+          <li>Desarrollo de modelos de valoración (DCF, comparables, suma de partes) en Excel avanzado para transacciones de M&amp;A, ampliaciones de capital y OPAs, con foco en la trazabilidad y auditabilidad de los supuestos.</li>
+          <li>Control de calidad sobre grandes volúmenes de datos financieros de S&amp;P Capital IQ y Refinitiv Eikon: diseño de checks de consistencia y detección de anomalías, reduciendo errores en los inputs de los modelos de valoración.</li>
+          <li>Traducción de requerimientos de negocio en especificaciones analíticas estructuradas, sirviendo de puente entre stakeholders no técnicos y el equipo de modelización.</li>
+          <li>Liderazgo de un equipo de 5 analistas: estandarización de procesos de control de calidad de datos y consistencia entre modelos, con planificación de entregables y control de plazos en proyectos con múltiples stakeholders simultáneos.</li>
         </ul>
       </div>
 
@@ -1061,8 +1248,9 @@
           <span class="cv-date">Mar 2021 – Abr 2022</span>
         </div>
         <ul class="cv-bullets">
-          <li>Análisis recurrente de cartera de renta variable: modelos de valoración, seguimiento de KPIs y alertas ante factores de riesgo; recomendaciones presentadas a los gestores de cartera.</li>
-          <li>Identificación y priorización de oportunidades de inversión mediante análisis de datos de mercado y modelos de escenarios.</li>
+          <li>Construcción y mantenimiento de modelos de valoración y seguimiento de KPIs sobre datos de mercado, con alertas automatizadas ante factores de riesgo en posiciones estratégicas.</li>
+          <li>Exploración y análisis de datos de mercado para identificar y priorizar oportunidades de inversión, combinando modelos de valoración con análisis de escenarios.</li>
+          <li>Recomendaciones de inversión presentadas a gestores de cartera, basadas en análisis cuantitativo recurrente de la cartera de renta variable.</li>
         </ul>
       </div>
 
@@ -1091,7 +1279,7 @@
           <span class="cv-date">Oct 2025 – Sep 2026</span>
         </div>
         <ul class="cv-bullets">
-          <li>Nota media: 9,7 — Python, SQL, Tableau, Git, Machine Learning, Spark, Deep Learning, Text Mining.</li>
+          <li>Nota media: 9,7 — Python, SQL, Tableau, Git, Estadística, Machine Learning, Spark, Deep Learning, Minería de datos.</li>
           <li>TFM (en curso): <em>Detección de regímenes de mercado con machine learning aplicada al asset allocation táctico.</em></li>
         </ul>
       </div>
@@ -1105,7 +1293,7 @@
           <span class="cv-date">Oct 2020 – Jun 2021</span>
         </div>
         <ul class="cv-bullets">
-          <li>Métodos cuantitativos, mercados financieros, derivados, gestión de carteras, riesgo corporativo y gestión de capital.</li>
+          <li>Métodos cuantitativos, mercados e instituciones financieras, activos financieros y derivados, gestión de carteras, riesgo corporativo y financiero transaccional, gestión de riesgos y adecuación del capital.</li>
           <li>TFM: <em>Las SPACs desde el punto de vista del inversor.</em></li>
         </ul>
       </div>
@@ -1142,6 +1330,18 @@
             Credencial
           </a>
         </div>
+      </div>
+
+      <!-- Habilidades técnicas -->
+      <h3 class="cv-group-title" style="margin-top: 48px;">Habilidades Técnicas</h3>
+      <div class="cv-item" style="margin-bottom: 0;">
+        <ul class="cv-bullets">
+          <li><em>Lenguajes:</em> Python (pandas, scikit-learn, numpy, plotly, XGBoost, LightGBM, SHAP, Keras) · SQL (avanzado)</li>
+          <li><em>BI &amp; Visualización:</em> Power BI · Tableau · Streamlit · Plotly</li>
+          <li><em>Big Data &amp; Cloud:</em> PySpark · Azure / Databricks (en curso)</li>
+          <li><em>MLOps &amp; Dev:</em> Git / GitHub · Scikit-learn pipelines · MLflow · Excel (avanzado)</li>
+          <li><em>Datos financieros:</em> S&amp;P Capital IQ · Refinitiv Eikon</li>
+        </ul>
       </div>
 
     </div>
